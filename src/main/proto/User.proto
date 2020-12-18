@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "io.github.mirrormingzz.mapstruct.protobuf.demo.domain.pb";
+option java_package = "io.github.mirrormingzz.mapstruct.protobuf.demo.domain";
 option java_outer_classname = "UserProtos";
 
 enum EnumStatus {
