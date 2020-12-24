@@ -5,6 +5,7 @@ import io.github.mirrormingzz.mapstruct.protobuf.demo.test.*;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
+import java.util.Map;
 import java.util.function.Function;
 
 @Mapper(collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,
@@ -28,4 +29,11 @@ public interface TestMapper {
             @Mapping(target = "a2", expression = "java(function.apply(test3))")
     })
     TestProtos.Test map4(Test3 test3, Function<Test3, String> function);
+
+
+    @Mappings({
+            @Mapping(source = "test3.a4", target = "a3"),
+            @Mapping(target = "a2", expression = "java(language.handler(lan, test3))")
+    })
+    TestProtos.Test map5(Test3 test3, Integer lan, Language<Test3> language);
 }

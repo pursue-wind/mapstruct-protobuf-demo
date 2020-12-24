@@ -47,4 +47,14 @@ class Tests {
         System.out.println(map);
     }
 
+    @Test
+    public void test5() throws InvalidProtocolBufferException {
+        Test3 test3 = new Test3("3");
+
+        TestProtos.Test map = TestMapper.INSTANCE.map5(test3, 1, (lan, t3) -> t3.getA4() + "english");
+        TestProtos.Test map2 = TestMapper.INSTANCE.map5(test3, 2, (lan, t3) -> t3.getA4() + "中文");
+        System.out.println(map);
+        System.out.println(map2);
+    }
+
 }
