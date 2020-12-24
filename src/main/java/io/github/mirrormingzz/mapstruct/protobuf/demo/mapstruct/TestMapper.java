@@ -1,52 +1,31 @@
 package io.github.mirrormingzz.mapstruct.protobuf.demo.mapstruct;
 
-import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.*;
-import org.mapstruct.CollectionMappingStrategy;
-import org.mapstruct.Mapper;
-import org.mapstruct.NullValueCheckStrategy;
-import org.mapstruct.ReportingPolicy;
+
+import io.github.mirrormingzz.mapstruct.protobuf.demo.test.*;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
+import java.util.function.Function;
+
 @Mapper(collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,
-        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS,
-        unmappedSourcePolicy = ReportingPolicy.ERROR,
-        unmappedTargetPolicy = ReportingPolicy.ERROR)
-public interface UserMapper {
+        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
+public interface TestMapper {
+    TestMapper INSTANCE = Mappers.getMapper(TestMapper.class);
 
-    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    default String mapString(String in) {
-        if ((null == in) || in.isEmpty()) {
-            return null;
-        }
-        return in;
-    }
+    @Mapping(source = "test3.a4", target = "a3")
+    TestProtos.Test map(Test1 test1, Test2 test2, Test3 test3);
 
-    default Double mapDouble(Double in) {
-        return in;
-    }
+    @Mapping(source = "test3.a4", target = "a3")
+    TestProtos.Test map2(Test3 test3);
 
-    default MultiNumber map(UserProtos.MultiNumberDTO number) {
-        return new MultiNumber();
-    }
+    @Mapping(target = "a3", expression = "java(test4.getDateTime().format(java.time.format.DateTimeFormatter.ISO_DATE_TIME))")
+    TestProtos.Test map3(Test4 test4);
 
-    default UserProtos.MultiNumberDTO map(MultiNumber number) {
-        return UserProtos.MultiNumberDTO.newBuilder().build();
-    }
 
-    UserProtos.UserDTO map(User user);
-
-    User map(UserProtos.UserDTO userDTO);
-
-    Permission map(UserProtos.PermissionDTO permissionDTO);
-
-    UserProtos.PermissionDTO map(Permission perm);
-
-    Status map(UserProtos.EnumStatus permissionDTO);
-
-    UserProtos.EnumStatus map(Status perm);
-
-    Department map(UserProtos.DepartmentDTO departmentDTO);
-
-    UserProtos.DepartmentDTO map(Department department);
+    @Mappings({
+            @Mapping(source = "test3.a4", target = "a3"),
+            @Mapping(target = "a2", expression = "java(function.apply(test3))")
+    })
+    TestProtos.Test map4(Test3 test3, Function<Test3, String> function);
 }

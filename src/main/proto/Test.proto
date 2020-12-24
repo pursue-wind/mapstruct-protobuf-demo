@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_package = "io.github.mirrormingzz.mapstruct.protobuf.demo.test";
+option java_outer_classname = "TestProtos";
+
+
+message Test {
+  string a1 = 1;
+  string a2 = 2;
+  string a3 = 3;
+}
+
