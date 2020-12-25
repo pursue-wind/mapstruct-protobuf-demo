@@ -1,14 +1,13 @@
-package io.github.mirrormingzz.mapstruct.protobuf.demo.domain;
-
+package io.github.mirrormingzz.mapstruct.protobuf.demo.domain.complex;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class House {
-    private String name;
-
+public class Test3 {
+    String a4;
 }

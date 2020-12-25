@@ -1,11 +1,14 @@
 package io.github.mirrormingzz.mapstruct.protobuf.demo.mapstruct;
 
 
-import io.github.mirrormingzz.mapstruct.protobuf.demo.test.*;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.TestProtos;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.complex.Test1;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.complex.Test2;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.complex.Test3;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.complex.Test4;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
-import java.util.Map;
 import java.util.function.Function;
 
 @Mapper(collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,

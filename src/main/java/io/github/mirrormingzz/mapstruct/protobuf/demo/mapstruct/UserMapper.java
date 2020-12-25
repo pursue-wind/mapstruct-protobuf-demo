@@ -1,6 +1,7 @@
 package io.github.mirrormingzz.mapstruct.protobuf.demo.mapstruct;
 
 import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.*;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user.*;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueCheckStrategy;

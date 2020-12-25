@@ -1,4 +1,4 @@
-package io.github.mirrormingzz.mapstruct.protobuf.demo.domain;
+package io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user;
 
 
 import lombok.AllArgsConstructor;

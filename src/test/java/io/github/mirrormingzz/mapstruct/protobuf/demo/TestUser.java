@@ -3,6 +3,10 @@ package io.github.mirrormingzz.mapstruct.protobuf.demo;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.*;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user.Department;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user.MultiNumber;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user.Status;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user.User;
 import io.github.mirrormingzz.mapstruct.protobuf.demo.mapstruct.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,11 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
-class DemoApplicationTests {
-
-    private static final String MAP_VALUE = "some value";
-    private static final String MAP_KEY = "some key";
-
+class TestUser {
 
     @Test
     public void test() throws InvalidProtocolBufferException {

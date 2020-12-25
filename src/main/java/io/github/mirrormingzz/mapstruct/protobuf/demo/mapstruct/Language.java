@@ -1,4 +1,4 @@
-package io.github.mirrormingzz.mapstruct.protobuf.demo.test;
+package io.github.mirrormingzz.mapstruct.protobuf.demo.mapstruct;
 
 @FunctionalInterface
 public interface Language<T> {
