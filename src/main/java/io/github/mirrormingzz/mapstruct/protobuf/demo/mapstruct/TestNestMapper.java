@@ -7,11 +7,13 @@ import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE,
         nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface TestNestMapper {
     TestNestMapper INSTANCE = Mappers.getMapper(TestNestMapper.class);
 
 
     NestProtos.Nest1 map(Nest1 nest1);
+
 
 }

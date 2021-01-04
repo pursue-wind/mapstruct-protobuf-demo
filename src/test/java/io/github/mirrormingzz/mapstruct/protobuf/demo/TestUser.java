@@ -3,11 +3,13 @@ package io.github.mirrormingzz.mapstruct.protobuf.demo;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.*;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.performance.User_491;
 import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user.Department;
 import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user.MultiNumber;
 import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user.Status;
 import io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user.User;
 import io.github.mirrormingzz.mapstruct.protobuf.demo.mapstruct.UserMapper;
+import io.github.mirrormingzz.mapstruct.protobuf.demo.mapstruct.performance.TestGen490Mapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -28,12 +30,26 @@ class TestUser {
         UserProtos.UserDTO dto = UserMapper.INSTANCE.map(user);
         UserProtos.UserDTO deserialized = UserProtos.UserDTO.parseFrom(dto.toByteArray());
         User back = UserMapper.INSTANCE.map(deserialized);
-
+//        User_491 user_491 = TestGen490Mapper.INSTANCE.map491(deserialized);
+//        System.out.println(user_491);
         assertUser(user, back);
     }
 
     @Test
     public void testNulls() throws InvalidProtocolBufferException {
+        User user = new User();
+        user.setEmail("test");
+
+        UserProtos.UserDTO dto = UserMapper.INSTANCE.map(user);
+        UserProtos.UserDTO deserialized = UserProtos.UserDTO.parseFrom(dto.toByteArray());
+        User back = UserMapper.INSTANCE.map(deserialized);
+
+        assertEquals(null, back.getId());
+        assertEquals("test", back.getEmail());
+    }
+
+    @Test
+    public void testNulls2() throws InvalidProtocolBufferException {
         User user = new User();
         user.setEmail("test");
 

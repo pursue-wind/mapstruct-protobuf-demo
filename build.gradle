@@ -17,12 +17,16 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven { url 'https://projectlombok.org/edge-releases' }
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+//    compileOnly 'org.projectlombok:lombok'
+//    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok:edge-SNAPSHOT'
+    compileOnly 'org.projectlombok:lombok:edge-SNAPSHOT'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     compile 'org.mapstruct:mapstruct:1.4.1.Final'

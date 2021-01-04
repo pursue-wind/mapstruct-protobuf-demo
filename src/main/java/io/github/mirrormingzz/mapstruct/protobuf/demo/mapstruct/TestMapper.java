@@ -12,7 +12,8 @@ import org.mapstruct.factory.Mappers;
 import java.util.function.Function;
 
 @Mapper(collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,
-        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
+        unmappedTargetPolicy = ReportingPolicy.IGNORE,
+        nullValueCheckStrategy = NullValueCheckStrategy.ON_IMPLICIT_CONVERSION)
 public interface TestMapper {
     TestMapper INSTANCE = Mappers.getMapper(TestMapper.class);
 
