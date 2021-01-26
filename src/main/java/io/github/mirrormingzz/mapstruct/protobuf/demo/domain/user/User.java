@@ -1,4 +1,4 @@
-package io.github.mirrormingzz.mapstruct.protobuf.demo.domain;
+package io.github.mirrormingzz.mapstruct.protobuf.demo.domain.user;
 
 
 import com.google.protobuf.ByteString;
@@ -52,7 +52,6 @@ public class User {
     List<MultiNumber> repMultiNumbers;
     private String id;
     private String email;
-    // private List<Permission> permissions = new ArrayList<>();
     private List<Department> mainDepartments = new ArrayList<>();
     private List<Department> departments = new ArrayList<>();
     private String nonRepeatableFieldWithSuffixList;

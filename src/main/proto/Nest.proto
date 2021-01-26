@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_package = "io.github.mirrormingzz.mapstruct.protobuf.demo.domain";
+option java_outer_classname = "NestProtos";
+
+
+message Nest1 {
+  string a1 = 1;
+  repeated Nest2 nest2 = 2;
+}
+
+message Nest2{
+  string a2 = 1;
+  Nest3 nest3 = 2;
+}
+
+
+message Nest3{
+  string a3 = 1;
+}
