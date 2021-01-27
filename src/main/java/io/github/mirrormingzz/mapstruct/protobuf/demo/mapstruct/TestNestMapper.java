@@ -16,7 +16,7 @@ public interface TestNestMapper {
     TestNestMapper INSTANCE = Mappers.getMapper(TestNestMapper.class);
 
 
+    /** 嵌套转换 */
     NestProtos.Nest1 map(Nest1 nest1);
-
 
 }
